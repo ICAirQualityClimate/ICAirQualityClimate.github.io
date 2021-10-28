@@ -1,4 +1,5 @@
 import time
+import numpy as np
 import matplotlib.pyplot as plt
 import datetime
 import matplotlib.dates as mdates
@@ -25,12 +26,14 @@ TCinds = TC[-length:]
 plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y/%m/%d %H:%M:%S'))
 plt.gca().xaxis.set_major_locator(mdates.DayLocator())
 plt.gcf().autofmt_xdate()
-fig,(ax1,ax2) =  plt.subplots(2,1, sharex=True, figsize=(8,8))
+fig,(ax1)=  plt.subplots(figsize=(8,8))
 
-ax1.plot(TMinds, RHinds, 'y')
-ax2.plot(TMinds, TCinds, 'b')
-#ax2.set_title('Temperature (Celsius)')
-#ax1.set_title('Relative Humidity')
-plt.setp(ax2, ylabel='Temperature (C)',xlabel='Date')
-plt.setp(ax1, ylabel='Relative Humidity')
+ax2 = ax1.twinx()
+ax2.plot(TMinds, RHinds, 'r')
+ax1.plot(TMinds, TCinds, 'b')
+ax1.set_title('Conditions in CNS 273')
+plt.setp(ax1, ylabel='Temperature (C)',xlabel='Date')
+plt.setp(ax2, ylabel='Relative Humidity')
+ax1.yaxis.label.set_color('blue')
+ax2.yaxis.label.set_color('red')
 plt.savefig('Sensor_plot')
