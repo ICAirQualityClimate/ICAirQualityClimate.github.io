@@ -18,6 +18,8 @@ sensor_script.py
 	First time set-up:
 		Using the conda prompt, use the following command to create an arduino virtual environment
 		"conda create -y -n arduino python=3.8"
+		or try
+		"conda create --name arduino python=3.7"
 
 		use the following command to activate the virtual environment 
 		"conda activate arduino"
