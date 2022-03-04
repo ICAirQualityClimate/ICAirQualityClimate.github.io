@@ -5,7 +5,7 @@ from datetime import datetime
 import os.path
 
 # make sure the 'COM#' is set according the Windows Device Manager
-ser = serial.Serial('COM4', 9600, timeout=1)
+ser = serial.Serial('COM3', 9600, timeout=1)
 time.sleep(2)
 
 
@@ -24,6 +24,7 @@ try:
             f.write(", ")
             string = line.decode()  # convert the byte string to a unicode string
             split_s = string.split(',') #Split the unicode string into an array of the data
+            #print(split_s)
             f.write(split_s[0])
             f.write(", ")
             f.write(split_s[1])
