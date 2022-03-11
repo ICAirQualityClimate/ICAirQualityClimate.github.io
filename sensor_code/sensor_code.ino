@@ -59,5 +59,5 @@ Serial.print(cTemp);
 Serial.print("\n"); 
 //Serial.print(fTemp);    
 }  
-delay(1000);
+delay(60000);
 }
